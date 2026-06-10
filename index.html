@@ -80,20 +80,22 @@
   section{padding:84px 0}
 
   header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:96px}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:104px}
   .brand{display:flex;align-items:center;gap:12px}
-  .brand img{height:80px;width:auto}
+  .brand img{height:92px;width:auto}
   .brand span{display:none}
   .nav-links{display:flex;gap:30px;font-weight:600;font-size:15px}
   .nav-links a{color:var(--txt);transition:.15s}
   .nav-links a:hover{color:var(--red)}
+  .nav-links a.nav-sale{color:var(--red);font-weight:800}
+  .nav-links a.nav-sale:hover{color:var(--red-dark)}
   .nav-cta{display:flex;align-items:center;gap:16px}
   .phone-top{display:flex;align-items:center;gap:8px;font-weight:800;color:var(--navy);font-size:17px}
   .phone-top svg{fill:var(--red)}
 
   .hero{position:relative;min-height:88vh;display:flex;align-items:center;color:#fff;overflow:hidden}
   .hero-bg{position:absolute;inset:0;background:url('images/hero-engine.jpg') center/cover no-repeat;transform:scale(1.03)}
-  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(18,42,54,.62) 0%,rgba(30,60,76,.34) 40%,rgba(45,90,114,.08) 100%)}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(14,34,44,.48) 0%,rgba(20,48,62,.20) 45%,rgba(45,90,114,0) 100%)}
   .hero-inner{position:relative;z-index:2;max-width:680px;padding:60px 0}
   .stars-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:8px 16px;border-radius:50px;font-size:14px;font-weight:600;margin-bottom:24px}
   .stars{color:var(--gold);letter-spacing:1px}
@@ -125,6 +127,11 @@
   .card .ic svg{fill:var(--red);width:28px;height:28px}
   .card h3{font-size:20px;margin-bottom:9px}
   .card p{color:var(--mut);font-size:15px}
+  .card-link{display:block;color:inherit;box-shadow:0 6px 22px rgba(62,119,148,.16)}
+  .card-link .ic{background:linear-gradient(135deg,#dceaf1,#eef5f9)}
+  .card-link .ic svg{fill:var(--steel)}
+  .card-cta{display:inline-block;margin-top:14px;color:var(--red);font-weight:800;font-size:14px}
+  .card-link:hover .card-cta{color:var(--red-dark)}
 
   .about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
   .about-imgs{position:relative}
@@ -209,6 +216,7 @@
       <a href="#about">About</a>
       <a href="#fleet">Fleet</a>
       <a href="#reviews">Reviews</a>
+      <a href="https://www.falmouthautocentersales.com/" target="_blank" rel="noopener" class="nav-sale">Cars for Sale ↗</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-cta">
@@ -258,7 +266,7 @@
       <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 3a7 7 0 017 7 7 7 0 01-7 7 7 7 0 01-7-7 7 7 0 017-7zm0 3a4 4 0 100 8 4 4 0 000-8z"/></svg></div><h3>Tires & Tire Shop</h3><p>New tires, mounting, balancing, rotation and flat repair. We get you the right tire at a fair price.</p></div>
       <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 13h2l2-7h10l2 7h2v6h-2v-2H5v2H3v-6zm5 1a2 2 0 100 4 2 2 0 000-4zm8 0a2 2 0 100 4 2 2 0 000-4z"/></svg></div><h3>Engine & Diagnostics</h3><p>Check-engine lights, electronic diagnostics, engine and transmission repair done by techs with 30+ years of experience.</p></div>
       <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 00-5 5v3a5 5 0 0010 0V7a5 5 0 00-5-5zm-1 16h2v4h-2v-4z"/></svg></div><h3>A/C & Electrical</h3><p>Air conditioning service, batteries, alternators and electrical troubleshooting to keep you comfortable and reliable.</p></div>
-      <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 11l1.5-4.5A2 2 0 018.4 5h7.2a2 2 0 011.9 1.5L19 11h1a1 1 0 011 1v5h-2v-2H5v2H3v-5a1 1 0 011-1h1zm2.5 0h9l-1-3h-7l-1 3z"/></svg></div><h3>Used Car Sales</h3><p>Quality pre-owned vehicles, inspected and ready to drive. Buy a car from a shop you can trust to stand behind it.</p></div>
+      <a class="card card-link" href="https://www.falmouthautocentersales.com/" target="_blank" rel="noopener"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 11l1.5-4.5A2 2 0 018.4 5h7.2a2 2 0 011.9 1.5L19 11h1a1 1 0 011 1v5h-2v-2H5v2H3v-5a1 1 0 011-1h1zm2.5 0h9l-1-3h-7l-1 3z"/></svg></div><h3>Cars for Sale ↗</h3><p>Quality pre-owned vehicles, inspected and ready to drive. Browse our current inventory and find your next car.</p><span class="card-cta">View Inventory →</span></a>
     </div>
   </div>
 </section>
@@ -369,7 +377,7 @@
           <li><a href="#services">Brakes &amp; Suspension</a></li>
           <li><a href="#services">Tires</a></li>
           <li><a href="#services">Diagnostics</a></li>
-          <li><a href="#services">Used Cars</a></li>
+          <li><a href="https://www.falmouthautocentersales.com/" target="_blank" rel="noopener">Cars for Sale ↗</a></li>
         </ul>
       </div>
       <div>
