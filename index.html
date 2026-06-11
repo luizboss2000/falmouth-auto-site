@@ -207,7 +207,10 @@
   .sale-txt .eyebrow{color:#ff8478}
   .sale-txt .eyebrow::before{background:var(--red)}
   .sale-txt h2{color:#fff;font-size:clamp(28px,3.6vw,42px);margin-bottom:16px}
-  .sale-txt p{color:#c3ccd5;font-size:16px;margin-bottom:28px;max-width:480px}
+  .sale-txt p{color:#c3ccd5;font-size:16px;margin-bottom:24px;max-width:480px}
+  .sale-feats{list-style:none;margin:0 0 28px;padding:0}
+  .sale-feats li{display:flex;align-items:center;gap:11px;color:#e6ecf1;font-weight:600;font-size:15.5px;margin-bottom:12px}
+  .sale-feats svg{fill:#ff8478;flex-shrink:0;width:21px;height:21px}
   .sale-img{position:relative;z-index:2}
   .sale-img img{border-radius:var(--r);height:300px;width:100%;object-fit:cover;box-shadow:var(--shadow)}
 
@@ -451,12 +454,17 @@
   <div class="wrap">
     <div class="sale-txt">
       <div class="eyebrow">Used Car Sales</div>
-      <h2>Looking for a Used Car? Browse Our Inventory</h2>
-      <p>Quality pre-owned vehicles, inspected and ready to drive — backed by the same shop you trust for repairs. See our current inventory on our sales site.</p>
-      <a href="https://www.falmouthautocentersales.com/" target="_blank" rel="noopener" class="btn btn-red">View Cars for Sale ↗</a>
+      <h2>Quality Used Cars — Inspected &amp; Warrantied</h2>
+      <p>Every vehicle on our lot is fully inspected by our own shop before it's sold, and backed by a warranty. Used cars bought &amp; sold right here in East Falmouth — drive away with confidence.</p>
+      <ul class="sale-feats">
+        <li><svg viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19l11-11-1.4-1.4z"/></svg> Every car shop-inspected before sale</li>
+        <li><svg viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19l11-11-1.4-1.4z"/></svg> Backed by a warranty</li>
+        <li><svg viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19l11-11-1.4-1.4z"/></svg> Used cars bought &amp; sold</li>
+      </ul>
+      <a href="https://www.falmouthautocentersales.com/" target="_blank" rel="noopener" class="btn btn-red">View Our Inventory ↗</a>
     </div>
     <div class="sale-img">
-      <img src="images/shop-2.jpg" alt="Used cars for sale at Falmouth Auto Center">
+      <img src="images/used-cars-lot.jpg" alt="Quality used cars for sale at Falmouth Auto Center in East Falmouth, MA">
     </div>
   </div>
 </section>
