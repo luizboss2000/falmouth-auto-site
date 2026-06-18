@@ -48,7 +48,7 @@
     --steel:#3e7794; --steel-d:#2f6079; --steel-l:#5a93b0; --steel-soft:#e8f0f5;
     --ink:#141618; --ink-2:#1c1f23; --panel:#202428;
     --red:#e0291f; --red-d:#b81f17;
-    --txt:#33404d; --mut:#6a7682; --line:#e6eaef; --soft:#f3f6f9; --bg:#ffffff;
+    --txt:#33404d; --mut:#6a7682; --line:#cfe1f0; --soft:#b3d9f2; --bg:#c8e6fa;
     --gold:#f6b21b;
     --shadow:0 14px 44px rgba(20,40,55,.13); --shadow-sm:0 6px 22px rgba(20,40,55,.09);
     --r:18px;
@@ -88,9 +88,15 @@
   .topbar .tb-right{display:flex;gap:10px}
   .topbar .tb-right a{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.08);justify-content:center}
   .topbar .tb-right a:hover{background:var(--steel)}
+  .lang-stack{display:flex;flex-direction:column;gap:9px;margin-bottom:18px}
+  .lang{display:inline-flex;align-items:center;gap:11px;font-weight:700;font-size:15px;font-family:'Archivo','Inter',sans-serif}
+  .lang .flag{width:42px;height:29px;border-radius:5px;display:block;box-shadow:0 2px 8px rgba(0,0,0,.25),0 0 0 1px rgba(255,255,255,.25);flex-shrink:0}
+  .hero-langs .lang{color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.5)}
+  .foot-langs{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;padding:6px 0 30px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:24px}
+  .foot-langs .lang{color:#e6ecf1}
 
   /* HEADER */
-  header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 16px rgba(20,40,55,.04)}
+  header{position:sticky;top:0;z-index:60;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 2px 16px rgba(20,40,55,.04)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:130px;gap:20px}
   .brand img{height:116px;width:auto}
   .nav-links{display:flex;gap:30px;font-weight:600;font-size:15px}
@@ -101,8 +107,10 @@
   .phone-top{display:flex;align-items:center;gap:11px}
   .phone-top .pi{width:42px;height:42px;border-radius:50%;background:var(--steel-soft);display:flex;align-items:center;justify-content:center}
   .phone-top .pi svg{fill:var(--steel)}
-  .phone-top small{display:block;color:var(--mut);font-size:12px}
-  .phone-top b{display:block;color:var(--ink);font-size:17px;font-family:'Archivo'}
+  .phone-top b{color:var(--ink);font-size:21px;font-family:'Archivo';white-space:nowrap}
+  .wa-btn{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:#25d366;box-shadow:0 8px 20px rgba(37,211,102,.35);transition:.2s;flex-shrink:0}
+  .wa-btn:hover{background:#1ebe5b;transform:translateY(-2px)}
+  .wa-btn svg{fill:#fff;width:26px;height:26px}
 
   /* HERO */
   .hero{position:relative;background:var(--ink);color:#fff;overflow:hidden;padding:0}
@@ -158,7 +166,7 @@
   /* SERVICES */
   .services{background:var(--soft)}
   .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:26px}
-  .svc{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);transition:.22s;border:1px solid var(--line)}
+  .svc{background:#e2f2fd;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);transition:.22s;border:1px solid var(--line)}
   .svc:hover{transform:translateY(-7px);box-shadow:var(--shadow);border-color:transparent}
   .svc .ph{height:188px;background:var(--steel-soft);position:relative;overflow:hidden}
   .svc .ph img{width:100%;height:100%;object-fit:cover;transition:.4s}
@@ -294,7 +302,8 @@
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-cta">
-      <a href="tel:+15085480136" class="phone-top"><span class="pi"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg></span><span><small>Call us today</small><b>508-548-0136</b></span></a>
+      <a href="tel:+15085480136" class="phone-top"><span class="pi"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg></span><b>508-548-0136</b></a>
+      <a href="https://wa.me/15085480136" target="_blank" rel="noopener" class="wa-btn" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.737-.981.741.374zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></a>
       <a href="/contact" class="btn btn-steel">Book Now</a>
     </div>
   </div>
@@ -317,6 +326,10 @@
       </div>
     </div>
     <div class="hero-cards">
+      <div class="lang-stack hero-langs">
+        <span class="lang"><svg class="flag" viewBox="0 0 28 20" aria-label="USA"><rect width="28" height="20" fill="#fff"/><rect y="0" width="28" height="2.86" fill="#b22234"/><rect y="5.71" width="28" height="2.86" fill="#b22234"/><rect y="11.43" width="28" height="2.86" fill="#b22234"/><rect y="17.14" width="28" height="2.86" fill="#b22234"/><rect width="12" height="11.43" fill="#3c3b6e"/><g fill="#fff"><circle cx="2.5" cy="2.2" r=".7"/><circle cx="6" cy="2.2" r=".7"/><circle cx="9.5" cy="2.2" r=".7"/><circle cx="4.2" cy="4.5" r=".7"/><circle cx="7.7" cy="4.5" r=".7"/><circle cx="2.5" cy="6.8" r=".7"/><circle cx="6" cy="6.8" r=".7"/><circle cx="9.5" cy="6.8" r=".7"/><circle cx="4.2" cy="9.1" r=".7"/><circle cx="7.7" cy="9.1" r=".7"/></g></svg> We Speak English</span>
+        <span class="lang"><svg class="flag" viewBox="0 0 28 20" aria-label="Brasil"><rect width="28" height="20" fill="#009b3a"/><polygon points="14,2 26,10 14,18 2,10" fill="#ffdf00"/><circle cx="14" cy="10" r="4.4" fill="#002776"/></svg> Falamos Português</span>
+      </div>
       <div class="float-card">
         <div class="fc-rating">
           <div class="big">4.6</div>
@@ -485,7 +498,7 @@
         <a href="/contact" class="btn btn-steel" style="margin-top:24px">Get a Free Quote</a>
       </div>
       <div class="map-box">
-        <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=614+East+Falmouth+Hwy,+East+Falmouth,+MA+02536&output=embed" title="Falmouth Auto Center location map"></iframe>
+        <iframe referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=614+East+Falmouth+Hwy,+East+Falmouth,+MA+02536&output=embed" title="Falmouth Auto Center location map"></iframe>
       </div>
     </div>
   </div>
@@ -533,6 +546,10 @@
         </ul>
         <p class="sms-note">Opt in for SMS appointment & service reminders. Msg & data rates may apply. Reply STOP to opt out.</p>
       </div>
+    </div>
+    <div class="foot-langs">
+      <span class="lang"><svg class="flag" viewBox="0 0 28 20" aria-label="USA"><rect width="28" height="20" fill="#fff"/><rect y="0" width="28" height="2.86" fill="#b22234"/><rect y="5.71" width="28" height="2.86" fill="#b22234"/><rect y="11.43" width="28" height="2.86" fill="#b22234"/><rect y="17.14" width="28" height="2.86" fill="#b22234"/><rect width="12" height="11.43" fill="#3c3b6e"/><g fill="#fff"><circle cx="2.5" cy="2.2" r=".7"/><circle cx="6" cy="2.2" r=".7"/><circle cx="9.5" cy="2.2" r=".7"/><circle cx="4.2" cy="4.5" r=".7"/><circle cx="7.7" cy="4.5" r=".7"/><circle cx="2.5" cy="6.8" r=".7"/><circle cx="6" cy="6.8" r=".7"/><circle cx="9.5" cy="6.8" r=".7"/><circle cx="4.2" cy="9.1" r=".7"/><circle cx="7.7" cy="9.1" r=".7"/></g></svg> We Speak English</span>
+      <span class="lang"><svg class="flag" viewBox="0 0 28 20" aria-label="Brasil"><rect width="28" height="20" fill="#009b3a"/><polygon points="14,2 26,10 14,18 2,10" fill="#ffdf00"/><circle cx="14" cy="10" r="4.4" fill="#002776"/></svg> Falamos Português</span>
     </div>
     <div class="foot-bottom">
       <span>© 2026 Falmouth Auto Center. All rights reserved.</span>
