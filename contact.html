@@ -20,6 +20,10 @@
   .btn{margin-top:20px;background:#c9302c;color:#fff;border:none;padding:13px 22px;border-radius:8px;font-weight:600;font-size:15px;cursor:pointer;width:100%}
   .fine{font-size:12px;color:#8a93a3;margin-top:14px;line-height:1.5}
   a{color:#c9302c}
+  .callnow{display:block;text-align:center;background:#10131a;color:#fff;text-decoration:none;padding:15px;border-radius:10px;font-weight:700;font-size:17px;margin-bottom:14px}
+  .callnow:hover{background:#1e2430}
+  .or{text-align:center;color:#8a93a3;font-size:13px;margin-bottom:18px}
+  .sent{background:#e8f6ec;border:1px solid #9fd6ae;color:#1d5c33;border-radius:10px;padding:14px;margin-top:16px;font-size:14px;display:none;line-height:1.5}
 </style>
 </head>
 <body>
@@ -27,9 +31,17 @@
   <div class="wrap">
     <h1>Get a free quote</h1>
     <p class="sub">Tell us what your vehicle needs. We will get back to you fast.</p>
-    <!-- Formspree: leads vao pro email falmouthautocenter@yahoo.com. Trocar FORMSPREE_ID pelo id real do form. -->
-    <form method="POST" action="https://formspree.io/f/FORMSPREE_ID">
-      <input type="hidden" name="_subject" value="New quote request — Falmouth Auto Center">
+    <a class="callnow" href="tel:+15085480136">Call or text us now &middot; 508-548-0136</a>
+    <p class="or">or send the details below</p>
+    <!-- ATENCAO: ate 2026-08-25 este form apontava pra https://formspree.io/f/FORMSPREE_ID,
+         que e o texto de EXEMPLO da documentacao. Nunca foi trocado pelo id real, entao TODO
+         lead enviado desde 25/06 se perdeu em silencio: a pessoa via a pagina responder e o
+         Luiz nunca recebia nada.
+         Enquanto nao existe um id de verdade, o envio abre o email do proprio cliente ja
+         preenchido. Nao e elegante, mas NAO MENTE e a mensagem chega de fato.
+         Para voltar ao envio direto: criar o form em formspree.io, pegar o id e trocar
+         data-endpoint abaixo por "https://formspree.io/f/<id>". O JS usa o endpoint quando existe. -->
+    <form id="quote" data-endpoint="">
       <label for="name">Full name</label>
       <input id="name" name="name" type="text" required>
 
@@ -56,7 +68,51 @@
 
       <button class="btn" type="submit">Send</button>
       <p class="fine">Falmouth Auto Center will never sell or share your phone number with third parties for marketing. Your consent and contact info are stored securely.</p>
+      <div class="sent" id="sent"></div>
     </form>
   </div>
+<script>
+(function () {
+  var f = document.getElementById("quote"), aviso = document.getElementById("sent");
+  f.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var v = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ""; };
+    var consent = document.getElementById("sms_consent").checked;
+    var endpoint = f.getAttribute("data-endpoint");
+
+    if (endpoint) {                       // caminho normal, quando houver um endpoint de verdade
+      var fd = new FormData(f);
+      fetch(endpoint, { method: "POST", body: fd, headers: { Accept: "application/json" } })
+        .then(function (r) {
+          if (!r.ok) throw new Error("falhou");
+          f.reset();
+          aviso.style.display = "block";
+          aviso.textContent = "Thanks! We got your request and will call you back shortly.";
+        })
+        .catch(function () { porEmail(); });
+      return;
+    }
+    porEmail();
+
+    function porEmail() {
+      var corpo = [
+        "Name: " + v("name"),
+        "Mobile phone: " + v("phone"),
+        "Email: " + (v("email") || "-"),
+        "Vehicle: " + (v("vehicle") || "-"),
+        "What it needs: " + (v("message") || "-"),
+        "",
+        "Text message consent: " + (consent ? "YES - customer agreed to receive SMS" : "no")
+      ].join("\n");
+      window.location.href = "mailto:falmouthautocenter@yahoo.com"
+        + "?subject=" + encodeURIComponent("New quote request - Falmouth Auto Center")
+        + "&body=" + encodeURIComponent(corpo);
+      aviso.style.display = "block";
+      aviso.innerHTML = "We opened your email app with the details filled in - just press send. "
+        + "In a hurry? Call or text <b>508-548-0136</b>.";
+    }
+  });
+})();
+</script>
 </body>
 </html>
