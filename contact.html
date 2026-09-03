@@ -33,15 +33,14 @@
     <p class="sub">Tell us what your vehicle needs. We will get back to you fast.</p>
     <a class="callnow" href="tel:+15085480136">Call or text us now &middot; 508-548-0136</a>
     <p class="or">or send the details below</p>
-    <!-- ATENCAO: ate 2026-08-25 este form apontava pra https://formspree.io/f/FORMSPREE_ID,
-         que e o texto de EXEMPLO da documentacao. Nunca foi trocado pelo id real, entao TODO
-         lead enviado desde 25/06 se perdeu em silencio: a pessoa via a pagina responder e o
-         Luiz nunca recebia nada.
-         Enquanto nao existe um id de verdade, o envio abre o email do proprio cliente ja
-         preenchido. Nao e elegante, mas NAO MENTE e a mensagem chega de fato.
-         Para voltar ao envio direto: criar o form em formspree.io, pegar o id e trocar
-         data-endpoint abaixo por "https://formspree.io/f/<id>". O JS usa o endpoint quando existe. -->
-    <form id="quote" data-endpoint="">
+    <!-- 2026-09-03: form ligado no FormSubmit (servico sem conta, ativado por email de confirmacao).
+         O endpoint usa um HASH aleatorio, entao o email NAO fica exposto no HTML publico.
+         Leads chegam no nettluiz@gmail (Nick monitora) + copia (_cc) pro falmouthautocenter@yahoo.com.
+         O JS faz POST no data-endpoint; se por algum motivo falhar, cai no mailto (fallback). -->
+    <form id="quote" data-endpoint="https://formsubmit.co/ajax/c97b9338a966f0b87563875235f59752">
+      <input type="hidden" name="_subject" value="New quote request - Falmouth Auto Center">
+      <input type="hidden" name="_cc" value="falmouthautocenter@yahoo.com">
+      <input type="hidden" name="_template" value="table">
       <label for="name">Full name</label>
       <input id="name" name="name" type="text" required>
 
