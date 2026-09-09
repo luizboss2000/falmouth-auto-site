@@ -56,12 +56,19 @@
       <label for="message">What does it need?</label>
       <textarea id="message" name="message" rows="3"></textarea>
 
+      <!-- DUAS caixinhas SEPARADAS (exigencia do TCR, confirmado pelo Salic/Twilio em 2026-09-03):
+           mensagem de MARKETING e de SERVICO (non-marketing) precisam de consentimento separado.
+           Ambas OPCIONAIS (sem `required`): consentimento nao pode ser condicao pra enviar o formulario. -->
       <div class="consent">
-        <!-- SEM `required`: o TCR reprova campanha A2P quando o consentimento de SMS e
-     condicao pra enviar o formulario. Consentimento tem que ser OPCIONAL. -->
-        <input id="sms_consent" name="sms_consent" type="checkbox">
-        <label for="sms_consent">
-          <b>Optional.</b> By checking this box, I agree to receive text messages from Falmouth Auto Center about appointments, service reminders, and offers at the phone number provided. Consent is not a condition of purchase. Message and data rates may apply. Message frequency varies. Reply STOP to opt out, HELP for help. See our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms</a>.
+        <input id="sms_service" name="sms_service" type="checkbox">
+        <label for="sms_service">
+          <b>Optional &middot; Service messages.</b> By checking this box, I agree to receive non-marketing text messages, such as appointment reminders and service notifications, from Falmouth Auto Center at the phone number provided. Consent is not a condition of purchase. Message and data rates may apply. Message frequency varies. Reply STOP to opt out, HELP for help.
+        </label>
+      </div>
+      <div class="consent">
+        <input id="sms_marketing" name="sms_marketing" type="checkbox">
+        <label for="sms_marketing">
+          <b>Optional &middot; Marketing messages.</b> By checking this box, I agree to receive marketing text messages, such as promotions and special offers, from Falmouth Auto Center at the phone number provided. Consent is not a condition of purchase. Message and data rates may apply. Message frequency varies. Reply STOP to opt out, HELP for help. See our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms</a>.
         </label>
       </div>
 
@@ -76,7 +83,8 @@
   f.addEventListener("submit", function (e) {
     e.preventDefault();
     var v = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ""; };
-    var consent = document.getElementById("sms_consent").checked;
+    var consentService = document.getElementById("sms_service").checked;
+    var consentMarketing = document.getElementById("sms_marketing").checked;
     var endpoint = f.getAttribute("data-endpoint");
 
     if (endpoint) {                       // caminho normal, quando houver um endpoint de verdade
@@ -101,7 +109,8 @@
         "Vehicle: " + (v("vehicle") || "-"),
         "What it needs: " + (v("message") || "-"),
         "",
-        "Text message consent: " + (consent ? "YES - customer agreed to receive SMS" : "no")
+        "SMS service consent (reminders): " + (consentService ? "YES" : "no"),
+        "SMS marketing consent (offers): " + (consentMarketing ? "YES" : "no")
       ].join("\n");
       window.location.href = "mailto:falmouthautocenter@yahoo.com"
         + "?subject=" + encodeURIComponent("New quote request - Falmouth Auto Center")
