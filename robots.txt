@@ -1,14 +1,9 @@
-# Falmouth Auto Center — robots.txt (DRAFT, revisar antes de subir)
-# Quando aprovar: mover este arquivo pra RAIZ do repo como /robots.txt
+# Falmouth Auto Center — robots.txt
 
 User-agent: *
 Allow: /
 
-# Bloqueia só as páginas legais de aparecerem como resultado isolado (opcional)
-# Disallow: /privacy
-# Disallow: /terms
-
-# Crawlers de IA liberados de propósito (queremos ser citados por ChatGPT/Perplexity)
+# Crawlers de IA liberados de proposito (queremos ser citados por ChatGPT/Perplexity)
 User-agent: GPTBot
 Allow: /
 User-agent: PerplexityBot
@@ -16,4 +11,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://falmouthautocenter.com/sitemap.xml
+Sitemap: https://www.falmouthautocenter.com/sitemap.xml
