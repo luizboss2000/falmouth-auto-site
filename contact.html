@@ -41,6 +41,11 @@
       <input type="hidden" name="_subject" value="New quote request - Falmouth Auto Center">
       <input type="hidden" name="_cc" value="falmouthautocenter@yahoo.com">
       <input type="hidden" name="_template" value="table">
+      <!-- Anti-robo (honeypot), 2026-11-25: campo escondido do humano. Bots preenchem TODOS os
+           inputs, entao caem aqui. O FormSubmit descarta qualquer envio com `_honey` preenchido,
+           e o JS abaixo barra antes mesmo de enviar. `aria-hidden`+`tabindex=-1` = leitor de tela
+           e TAB nunca chegam nele. -->
+      <input type="text" name="_honey" id="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" value="">
       <label for="name">Full name</label>
       <input id="name" name="name" type="text" required>
 
@@ -86,6 +91,15 @@
     var consentService = document.getElementById("sms_service").checked;
     var consentMarketing = document.getElementById("sms_marketing").checked;
     var endpoint = f.getAttribute("data-endpoint");
+
+    // Trava anti-robo: se o campo escondido veio preenchido, foi bot. Finge sucesso e NAO envia.
+    var honey = document.getElementById("_honey");
+    if (honey && honey.value.trim() !== "") {
+      f.reset();
+      aviso.style.display = "block";
+      aviso.textContent = "Thanks! We got your request and will call you back shortly.";
+      return;
+    }
 
     if (endpoint) {                       // caminho normal, quando houver um endpoint de verdade
       var fd = new FormData(f);
