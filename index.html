@@ -303,11 +303,24 @@
     section{padding:68px 0}
   }
   @media(max-width:620px){
-    .topbar .tb-left{gap:14px;font-size:12px}
-    .nav-cta .phone-top b{font-size:18px}
+    .topbar .wrap{height:auto;padding-top:8px;padding-bottom:8px;row-gap:4px}
+    .topbar .tb-left{gap:6px 14px;font-size:12px}
+    .nav{gap:10px}
+    .brand{flex-shrink:0}
+    .brand img{height:56px}
+    .nav-cta{gap:10px}
+    .nav-cta>.btn-steel{display:none}
+    .phone-top .pi{display:none}
+    .nav-cta .phone-top b{font-size:16px}
+    .wa-btn{width:38px;height:38px}
+    .wa-btn svg{width:22px;height:22px}
     .grid-3,.svc-icon,.rev-grid,.foot-grid{grid-template-columns:1fr}
     .stats .wrap{grid-template-columns:1fr 1fr}
     .cta-band .wrap{flex-direction:column;text-align:center}
+  }
+  @media(max-width:380px){
+    .phone-top .pi{display:flex;width:38px;height:38px}
+    .phone-top b{display:none}
   }
 </style>
 </head>
